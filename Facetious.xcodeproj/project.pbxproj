@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D326003217B894B000CF8309 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D326003117B894B000CF8309 /* Cocoa.framework */; };
+		D326003C17B894B000CF8309 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D326003A17B894B000CF8309 /* InfoPlist.strings */; };
+		D326003E17B894B000CF8309 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D326003D17B894B000CF8309 /* main.m */; };
+		D326004217B894B000CF8309 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D326004017B894B000CF8309 /* Credits.rtf */; };
+		D326004517B894B000CF8309 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D326004417B894B000CF8309 /* AppDelegate.m */; };
+		D326004817B894B000CF8309 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D326004617B894B000CF8309 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D326002E17B894B000CF8309 /* Facetious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facetious.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D326003117B894B000CF8309 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D326003417B894B000CF8309 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D326003517B894B000CF8309 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D326003617B894B000CF8309 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D326003917B894B000CF8309 /* Facetious-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Facetious-Info.plist"; sourceTree = "<group>"; };
+		D326003B17B894B000CF8309 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D326003D17B894B000CF8309 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D326003F17B894B000CF8309 /* Facetious-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Facetious-Prefix.pch"; sourceTree = "<group>"; };
+		D326004117B894B000CF8309 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D326004317B894B000CF8309 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D326004417B894B000CF8309 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D326004717B894B000CF8309 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D326002B17B894B000CF8309 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D326003217B894B000CF8309 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D326002517B894B000CF8309 = {
+			isa = PBXGroup;
+			children = (
+				D326003717B894B000CF8309 /* Facetious */,
+				D326003017B894B000CF8309 /* Frameworks */,
+				D326002F17B894B000CF8309 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D326002F17B894B000CF8309 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D326002E17B894B000CF8309 /* Facetious.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D326003017B894B000CF8309 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D326003117B894B000CF8309 /* Cocoa.framework */,
+				D326003317B894B000CF8309 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D326003317B894B000CF8309 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D326003417B894B000CF8309 /* AppKit.framework */,
+				D326003517B894B000CF8309 /* CoreData.framework */,
+				D326003617B894B000CF8309 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D326003717B894B000CF8309 /* Facetious */ = {
+			isa = PBXGroup;
+			children = (
+				D326004317B894B000CF8309 /* AppDelegate.h */,
+				D326004417B894B000CF8309 /* AppDelegate.m */,
+				D326004617B894B000CF8309 /* MainMenu.xib */,
+				D326003817B894B000CF8309 /* Supporting Files */,
+			);
+			path = Facetious;
+			sourceTree = "<group>";
+		};
+		D326003817B894B000CF8309 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D326003917B894B000CF8309 /* Facetious-Info.plist */,
+				D326003A17B894B000CF8309 /* InfoPlist.strings */,
+				D326003D17B894B000CF8309 /* main.m */,
+				D326003F17B894B000CF8309 /* Facetious-Prefix.pch */,
+				D326004017B894B000CF8309 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D326002D17B894B000CF8309 /* Facetious */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D326004B17B894B000CF8309 /* Build configuration list for PBXNativeTarget "Facetious" */;
+			buildPhases = (
+				D326002A17B894B000CF8309 /* Sources */,
+				D326002B17B894B000CF8309 /* Frameworks */,
+				D326002C17B894B000CF8309 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Facetious;
+			productName = Facetious;
+			productReference = D326002E17B894B000CF8309 /* Facetious.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D326002617B894B000CF8309 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Philip;
+			};
+			buildConfigurationList = D326002917B894B000CF8309 /* Build configuration list for PBXProject "Facetious" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D326002517B894B000CF8309;
+			productRefGroup = D326002F17B894B000CF8309 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D326002D17B894B000CF8309 /* Facetious */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D326002C17B894B000CF8309 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D326003C17B894B000CF8309 /* InfoPlist.strings in Resources */,
+				D326004217B894B000CF8309 /* Credits.rtf in Resources */,
+				D326004817B894B000CF8309 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D326002A17B894B000CF8309 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D326003E17B894B000CF8309 /* main.m in Sources */,
+				D326004517B894B000CF8309 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D326003A17B894B000CF8309 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D326003B17B894B000CF8309 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D326004017B894B000CF8309 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D326004117B894B000CF8309 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D326004617B894B000CF8309 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D326004717B894B000CF8309 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D326004917B894B000CF8309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D326004A17B894B000CF8309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D326004C17B894B000CF8309 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Facetious/Facetious-Prefix.pch";
+				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D326004D17B894B000CF8309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Facetious/Facetious-Prefix.pch";
+				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D326002917B894B000CF8309 /* Build configuration list for PBXProject "Facetious" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D326004917B894B000CF8309 /* Debug */,
+				D326004A17B894B000CF8309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D326004B17B894B000CF8309 /* Build configuration list for PBXNativeTarget "Facetious" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D326004C17B894B000CF8309 /* Debug */,
+				D326004D17B894B000CF8309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D326002617B894B000CF8309 /* Project object */;
+}
