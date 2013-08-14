@@ -21,12 +21,29 @@
 // http://opensource.org/licenses/MIT
 
 //
-//  main.m
+//  FacetiousCppNSOpenGL.h
 //
 
-#import <Cocoa/Cocoa.h>
+#ifndef __FacetiousCppNSOpenGL__
+#define __FacetiousCppNSOpenGL__
 
-int main(int argc, char *argv[])
+#include "Aoc/AocCppNSOpenGLBase.h"
+#include <iostream>
+
+class FacetiousCppNSOpenGL : public Aoc::CppNSOpenGLBase
 {
-    return NSApplicationMain(argc, (const char **)argv);
-}
+public:
+    FacetiousCppNSOpenGL(Aoc::CppNSOpenGLRequester*);
+    virtual ~FacetiousCppNSOpenGL();
+    
+    virtual void init();
+    virtual void reshape(int width, int height);
+    virtual void draw();
+    virtual void keyDown(Aoc::CppNSOpenGLBase::KeyEvent keyEvent);
+    
+private:
+    class Imp;
+    std::unique_ptr<Imp> _m;
+};
+
+#endif

@@ -21,12 +21,12 @@
 // http://opensource.org/licenses/MIT
 
 //
-//  main.m
+//  FacetiousInit.h
 //
 
-#import <Cocoa/Cocoa.h>
+#ifndef __FacetiousInit__
+#define __FacetiousInit__
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
-}
+void facetiousInit();
+
+#endif

@@ -21,12 +21,17 @@
 // http://opensource.org/licenses/MIT
 
 //
-//  main.m
+//  FacetiousInit.cpp
 //
 
-#import <Cocoa/Cocoa.h>
+#include "FacetiousCppNSOpenGL.h"
 
-int main(int argc, char *argv[])
+Aoc::CppNSOpenGLBase* facetiousCreator(Aoc::CppNSOpenGLRequester* req)
 {
-    return NSApplicationMain(argc, (const char **)argv);
+    return new FacetiousCppNSOpenGL(req);
+}
+
+extern "C" void facetiousInit()
+{
+    Aoc::CppNSOpenGLBase::setCreator(facetiousCreator);
 }

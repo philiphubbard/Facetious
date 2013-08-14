@@ -13,6 +13,14 @@
 		D326004217B894B000CF8309 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D326004017B894B000CF8309 /* Credits.rtf */; };
 		D326004517B894B000CF8309 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D326004417B894B000CF8309 /* AppDelegate.m */; };
 		D326004817B894B000CF8309 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D326004617B894B000CF8309 /* MainMenu.xib */; };
+		D326005217B896FF00CF8309 /* FacetiousCppNSOpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D326004E17B896FF00CF8309 /* FacetiousCppNSOpenGL.cpp */; };
+		D326005317B896FF00CF8309 /* FacetiousShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D326005017B896FF00CF8309 /* FacetiousShader.cpp */; };
+		D326005717B897E000CF8309 /* libAgl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005417B897E000CF8309 /* libAgl.dylib */; };
+		D326005817B897E000CF8309 /* libAoc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005517B897E000CF8309 /* libAoc.dylib */; };
+		D326005917B897E000CF8309 /* libAut.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005617B897E000CF8309 /* libAut.dylib */; };
+		D326005B17B9E59700CF8309 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005A17B9E59700CF8309 /* OpenGL.framework */; };
+		D326005D17B9E5D600CF8309 /* libIex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005C17B9E5D600CF8309 /* libIex.dylib */; };
+		D326006017B9E86000CF8309 /* FacetiousInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D326005E17B9E86000CF8309 /* FacetiousInit.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +37,17 @@
 		D326004317B894B000CF8309 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D326004417B894B000CF8309 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D326004717B894B000CF8309 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D326004E17B896FF00CF8309 /* FacetiousCppNSOpenGL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacetiousCppNSOpenGL.cpp; sourceTree = "<group>"; };
+		D326004F17B896FF00CF8309 /* FacetiousCppNSOpenGL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacetiousCppNSOpenGL.h; sourceTree = "<group>"; };
+		D326005017B896FF00CF8309 /* FacetiousShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacetiousShader.cpp; sourceTree = "<group>"; };
+		D326005117B896FF00CF8309 /* FacetiousShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacetiousShader.h; sourceTree = "<group>"; };
+		D326005417B897E000CF8309 /* libAgl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libAgl.dylib; path = "../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug/libAgl.dylib"; sourceTree = "<group>"; };
+		D326005517B897E000CF8309 /* libAoc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libAoc.dylib; path = "../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug/libAoc.dylib"; sourceTree = "<group>"; };
+		D326005617B897E000CF8309 /* libAut.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libAut.dylib; path = "../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug/libAut.dylib"; sourceTree = "<group>"; };
+		D326005A17B9E59700CF8309 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D326005C17B9E5D600CF8309 /* libIex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIex.dylib; path = ../../../../../../usr/local/lib/libIex.dylib; sourceTree = "<group>"; };
+		D326005E17B9E86000CF8309 /* FacetiousInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacetiousInit.cpp; sourceTree = "<group>"; };
+		D326005F17B9E86000CF8309 /* FacetiousInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacetiousInit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +55,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D326005B17B9E59700CF8309 /* OpenGL.framework in Frameworks */,
+				D326005717B897E000CF8309 /* libAgl.dylib in Frameworks */,
+				D326005817B897E000CF8309 /* libAoc.dylib in Frameworks */,
+				D326005D17B9E5D600CF8309 /* libIex.dylib in Frameworks */,
+				D326005917B897E000CF8309 /* libAut.dylib in Frameworks */,
 				D326003217B894B000CF8309 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +70,11 @@
 		D326002517B894B000CF8309 = {
 			isa = PBXGroup;
 			children = (
+				D326005C17B9E5D600CF8309 /* libIex.dylib */,
+				D326005A17B9E59700CF8309 /* OpenGL.framework */,
+				D326005417B897E000CF8309 /* libAgl.dylib */,
+				D326005517B897E000CF8309 /* libAoc.dylib */,
+				D326005617B897E000CF8309 /* libAut.dylib */,
 				D326003717B894B000CF8309 /* Facetious */,
 				D326003017B894B000CF8309 /* Frameworks */,
 				D326002F17B894B000CF8309 /* Products */,
@@ -82,8 +111,14 @@
 		D326003717B894B000CF8309 /* Facetious */ = {
 			isa = PBXGroup;
 			children = (
+				D326004E17B896FF00CF8309 /* FacetiousCppNSOpenGL.cpp */,
+				D326004F17B896FF00CF8309 /* FacetiousCppNSOpenGL.h */,
+				D326005017B896FF00CF8309 /* FacetiousShader.cpp */,
+				D326005117B896FF00CF8309 /* FacetiousShader.h */,
 				D326004317B894B000CF8309 /* AppDelegate.h */,
 				D326004417B894B000CF8309 /* AppDelegate.m */,
+				D326005E17B9E86000CF8309 /* FacetiousInit.cpp */,
+				D326005F17B9E86000CF8309 /* FacetiousInit.h */,
 				D326004617B894B000CF8309 /* MainMenu.xib */,
 				D326003817B894B000CF8309 /* Supporting Files */,
 			);
@@ -168,6 +203,9 @@
 			files = (
 				D326003E17B894B000CF8309 /* main.m in Sources */,
 				D326004517B894B000CF8309 /* AppDelegate.m in Sources */,
+				D326005217B896FF00CF8309 /* FacetiousCppNSOpenGL.cpp in Sources */,
+				D326005317B896FF00CF8309 /* FacetiousShader.cpp in Sources */,
+				D326006017B9E86000CF8309 /* FacetiousInit.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +302,16 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Facetious/Facetious-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/..",
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug\"",
+					/usr/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -276,7 +323,16 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Facetious/Facetious-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/..",
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug\"",
+					/usr/local/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -301,6 +357,7 @@
 				D326004D17B894B000CF8309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
