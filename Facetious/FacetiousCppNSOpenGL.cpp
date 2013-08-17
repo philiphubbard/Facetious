@@ -68,8 +68,15 @@ public:
         frontTexture(0), backTexture(0), viewWidth(0), viewHeight(0),
         rotAngleX(0.0f), rotAngleY(0.0f) {}
     
-    static void         textureDataFromImage(CGImageRef image,
-                                             GLubyte* data);
+    // The caller allocates and owns "data".
+    
+    static void         getTextureDataFromImage(CGImageRef image,
+                                                GLubyte* data);
+    
+    // Allocates "data" but the caller owns it.
+    
+    static void         getDefaultImage(GLubyte*& data, GLsizei& width,
+                                        GLsizei& height);
     
     void                detectorThreadFunc();
     void                animTimerThreadFunc();
@@ -172,23 +179,6 @@ public:
     Imath::V3f                         lightColor;
 };
 
-namespace
-{
-    // Helper routine to load an image from a file.
-    
-    CGImageRef imageFromFile(const char* fileName)
-    {
-        CFStringRef fileString = CFStringCreateWithCString(0, fileName, kCFStringEncodingASCII);
-        CFURLRef url = CFURLCreateWithFileSystemPath(0, fileString, kCFURLPOSIXPathStyle, 0);
-        CGImageSourceRef source = CGImageSourceCreateWithURL(url, CFDictionaryRef());
-        CGImageRef image = CGImageSourceCreateImageAtIndex (source, 0, 0);
-        CFRelease(fileString);
-        CFRelease(url);
-        CFRelease(source);
-        return image;
-    }
-}
-
 //
 
 FacetiousCppNSOpenGL::Imp::Camera::Camera(FacetiousCppNSOpenGL::Imp* imp) :
@@ -220,8 +210,8 @@ void FacetiousCppNSOpenGL::Imp::Camera::handleCapturedImage(CGImageRef image)
 
 //
 
-void FacetiousCppNSOpenGL::Imp::textureDataFromImage (CGImageRef image,
-                                                    GLubyte* data)
+void FacetiousCppNSOpenGL::Imp::getTextureDataFromImage (CGImageRef image,
+                                                         GLubyte* data)
 {
     size_t width = CGImageGetWidth(image);
     size_t height = CGImageGetHeight(image);
@@ -238,8 +228,33 @@ void FacetiousCppNSOpenGL::Imp::textureDataFromImage (CGImageRef image,
     CGContextScaleCTM(context, 1.0f, -1.0f);
     
     CGContextDrawImage(context, CGRectMake(0.0, 0.0, width, height), image);
-    
     CGContextRelease(context);
+}
+
+void FacetiousCppNSOpenGL::Imp::getDefaultImage(GLubyte*& data, GLsizei& width,
+                                                GLsizei& height)
+{
+    CFBundleRef bundle = CFBundleGetMainBundle();
+    CFStringRef name = CFStringCreateWithCString (NULL, "defaultImage",
+                                                  kCFStringEncodingUTF8);
+    
+    CFURLRef url = CFBundleCopyResourceURL(bundle, name, CFSTR("jpg"), NULL);
+    CFRelease(name);
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithURL(url);
+    CFRelease (url);
+    
+    CGImageRef image =
+        CGImageCreateWithJPEGDataProvider (provider, NULL, true,
+                                           kCGRenderingIntentDefault);
+    CGDataProviderRelease (provider);
+
+    width = GLsizei(CGImageGetWidth(image));
+    height = GLsizei(CGImageGetHeight(image));
+    GLsizei bytesPerPixel = 4;
+    data = new GLubyte [width * height * bytesPerPixel];
+    
+    getTextureDataFromImage(image, data);
 }
 
 void FacetiousCppNSOpenGL::Imp::detectorThreadFunc()
@@ -312,7 +327,7 @@ void FacetiousCppNSOpenGL::Imp::detectorThreadFunc()
                 GLsizei imageWidth = GLsizei(CGImageGetWidth(image));
                 GLsizei imageHeight = GLsizei(CGImageGetHeight(image));
                 GLubyte* newDetectorImage0 = detectorImagePool.alloc();
-                textureDataFromImage(image, newDetectorImage0);
+                getTextureDataFromImage(image, newDetectorImage0);
 
                 detectedFace = faces[iFaceMaxDim];
                 xAvg.add(detectedFace.x());
@@ -447,14 +462,6 @@ FacetiousCppNSOpenGL::FacetiousCppNSOpenGL(Aoc::CppNSOpenGLRequester* r) :
     _m->runAnimTimerThread = true;
     _m->animTimerThread =
         new std::thread(std::bind(&Imp::animTimerThreadFunc, _m.get()));
-    
-#if 0
-    // HEY!! bundle is null
-    CFBundleRef bundle = CFBundleGetMainBundle();
-    CFURLRef url = CFBundleCopyResourceURL(bundle, CFSTR("Credits"), CFSTR("rtf"), CFSTR("Supporting Files"));
-    CFStringRef s = CFURLCopyPath(url);
-    s;
-#endif
 }
 
 FacetiousCppNSOpenGL::~FacetiousCppNSOpenGL()
@@ -611,23 +618,13 @@ void FacetiousCppNSOpenGL::init()
         fs->setStrength(strength);
     }
 
-#if 1
-    // HEY!! How to handle the initial image?
-    size_t max = 256;
-    char buf[max];
-    getcwd(buf, max);
-    std::cerr << "cwd \"" << buf << "\"\n";
-    // HEY!! crashes std::cerr << "$(SRCROOT) \"" << getenv("SRCROOT") << "\"\n";
-    GLsizei frontTextureDimension = 64;
-    //CGImageRef image = imageFromFile("/Users/philip2/Documents/devel/osX/cat64.jpg");
-    CGImageRef image = imageFromFile("/Users/philip2/Documents/devel/osX/photo-30crop64.jpg");
-    GLubyte* frontTextureColors = new GLubyte[CGImageGetWidth(image) * CGImageGetHeight(image) * 4];
-    Imp::textureDataFromImage(image, frontTextureColors);
-#endif
+    GLubyte* frontTextureColors;
+    GLsizei frontTextureWidth, frontTextureHeight;
+    Imp::getDefaultImage(frontTextureColors, frontTextureWidth, frontTextureHeight);
 
     _m->frontTexture = new Agl::TextureUbyte(GL_TEXTURE_2D);
     _m->frontTexture->build();
-    _m->frontTexture->setData(frontTextureColors, frontTextureDimension, frontTextureDimension);
+    _m->frontTexture->setData(frontTextureColors, frontTextureWidth, frontTextureHeight);
     _m->frontSurface->setTexture(_m->frontTexture);
     
     delete [] frontTextureColors;
