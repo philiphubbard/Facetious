@@ -617,6 +617,9 @@ void FacetiousCppNSOpenGL::init()
         fs->setShininess(shininess);
         fs->setStrength(strength);
     }
+    
+    // Initialize the front surface's texture with a default face image, obtained from
+    // the bundle's resources.
 
     GLubyte* frontTextureColors;
     GLsizei frontTextureWidth, frontTextureHeight;
