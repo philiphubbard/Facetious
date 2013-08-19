@@ -21,7 +21,13 @@
 // http://opensource.org/licenses/MIT
 
 //
-//  FacetiousInit.h
+// FacetiousInit.h
+// 
+// This header must be pure C, so it can be imported by AppDelegate.m.
+// The AppDelegate calls the facetiousInit() function to give 
+// Aoc::CppNSOpenGLBase a function it uses to create an instance of
+// FacetousCppNSOpenGL, which derives from Aoc::CppNSOpenGL and implements
+// the logic of the application.  
 //
 
 #ifndef __FacetiousInit__

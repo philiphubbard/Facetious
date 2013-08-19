@@ -21,8 +21,17 @@
 // http://opensource.org/licenses/MIT
 
 //
-//  FacetiousShader.h
+// FacetiousShader.h
 //
+// IntensityHeightFieldVertexShader: An OpenGL vertex shader that warps
+// a flat grid surface, giving each vertex a height based on the luminance
+// (perceived brightness) of a texture at the position of the vertex.
+//
+// IntensityPhongShaderProgram, IntensityHarmonicsShaderProgram,
+// BasicPhongShaderProgram, BasicHarmonicsShaderProgra: typedefs for
+// instatiations of the Agl::ShaderProgramSpecific template, for
+// the four combinations of vertex and fragment shaders used in the
+// Facetious application.
 
 #ifndef __FacetiousShader__
 #define __FecetiousShader__
@@ -44,31 +53,61 @@ public:
     IntensityHeightFieldVertexShader();
     virtual ~IntensityHeightFieldVertexShader();
     
+    // Set and get a scale factor for the luminance-based height at each
+    // vertex (1.0f leaves the height unscaled).
+    
+    void                setHeightScale(GLfloat);
+    GLfloat             heightScale() const;
+    
     // Necessary because overloading one version of postLink() implicitly
     // hides the other versions from the base class.  See Scott Meyers'
     // "Effective C++: Third Edition," Item 33.
     
     using VertexShaderPNT::postLink;
     
+    // Perform initialization after the linking of the shader program with
+    // this shader.
+    
     virtual void        postLink();
+    
+    // Perform initialization before drawing any surfaces with this shader.
+    
     virtual void        preDraw();
+    
+    // Perform initialization before drawing a particular surface with this
+    // shader.
+    
     virtual void        preDraw(Agl::SurfacePNT*);
+    
+    // Clean up after drawing all surfaces with this shader.
+    
     virtual void        postDraw();
     
 protected:
+    
+    // The names in the shader code for the uniform variables for the
+    // model-view-projection matrix and the normal matrix.
+    
     virtual const char* modelViewProjectionMatrixUniformName() const;
     virtual const char* normalMatrixUniformName() const;
-
+    
+    // The names in the shader code for the attribute variables for the
+    // vertex position, the normal vector and the texture coordinates.
+    
     virtual const char* positionAttributeName() const;
     virtual const char* normalAttributeName() const;
     virtual const char* texCoordAttributeName() const;
 
 private:
+    
+    // The data members of this class are hidden in the .cpp file.
+   
     class Imp;
     std::unique_ptr<Imp> _m;
 };
 
-//
+
+// Typedefs for specific shader programs instantiated from the template.
 
 typedef Agl::ShaderProgramSpecific<IntensityHeightFieldVertexShader,
                                    Agl::PhongOneDirectionalFragmentShader,

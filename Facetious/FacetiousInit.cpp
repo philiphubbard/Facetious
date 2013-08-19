@@ -31,7 +31,14 @@ Aoc::CppNSOpenGLBase* facetiousCreator(Aoc::CppNSOpenGLRequester* req)
     return new FacetiousCppNSOpenGL(req);
 }
 
+// This function must be labeled 'extern "C"' so it can be called as pure C
+// from AppDelegate.m.
+
 extern "C" void facetiousInit()
 {
+    // Tell Aoc::CppNSOpenGLBase to call facetiousCreator() when the Objective-C++
+    // class AocNSOpenGLView requests the creation of an instance of a class
+    // derived from Aoc::CppNSOpenGLBase.
+    
     Aoc::CppNSOpenGLBase::setCreator(facetiousCreator);
 }

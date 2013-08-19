@@ -21,27 +21,51 @@
 // http://opensource.org/licenses/MIT
 
 //
-//  FacetiousCppNSOpenGL.h
+// FacetiousCppNSOpenGL.h
+//
+// FacetiousCppNSOpenGL: The main class implementing the Facetious application.
+// The code in FacetiousInit.{h,cpp} causes an instance of this class to be
+// created and associated with the AocCppNSOpenGLView created by the AppDelegate.
+// The AocCppNSOpenGLView then calls functions on this class to handle OpenGL
+// initialization, window reshaping, drawing and keyboard input.
 //
 
 #ifndef __FacetiousCppNSOpenGL__
 #define __FacetiousCppNSOpenGL__
 
 #include "Aoc/AocCppNSOpenGLBase.h"
-#include <iostream>
 
 class FacetiousCppNSOpenGL : public Aoc::CppNSOpenGLBase
 {
 public:
+    
+    // The Aoc::CppNSOpenGLRequester instance can be used to request a redraw,
+    // for example after the processing of a keyboard event makes a change that
+    // needs to be reflected in the rendering.
+    
     FacetiousCppNSOpenGL(Aoc::CppNSOpenGLRequester*);
     virtual ~FacetiousCppNSOpenGL();
     
+    // Initialize OpenGL for the Facetious application.
+    
     virtual void init();
+    
+    // Handle the resizing of the window.
+    
     virtual void reshape(int width, int height);
+    
+    // Perform OpenGL rendering.
+    
     virtual void draw();
+    
+    // Handle a keyboard event.
+    
     virtual void keyDown(Aoc::CppNSOpenGLBase::KeyEvent keyEvent);
     
 private:
+    
+    // The data members of this class are hidden in the .cpp file.
+    
     class Imp;
     std::unique_ptr<Imp> _m;
 };

@@ -35,20 +35,30 @@
 class IntensityHeightFieldVertexShader::Imp
 {
 public:
+    Imp() : defaultTextureWrapS(GL_CLAMP_TO_EDGE),
+        defaultTextureWrapT(GL_CLAMP_TO_EDGE),
+        texelWidthSUniform(-1), texelWidthTUniform(-1),
+        heightScale(1/3.0f), heightScaleUniform(-1) {}
     static const char*  text;
     GLint               defaultTextureWrapS;
     GLint               defaultTextureWrapT;
     GLint               texelWidthSUniform;
     GLint               texelWidthTUniform;
+    GLfloat             heightScale;
+    GLint               heightScaleUniform;
 };
 
 const char* IntensityHeightFieldVertexShader::Imp::text =
     "#version 150\n"
     "uniform mat4 modelViewProjMatrix;\n"
     "uniform mat3 normalMatrix;\n"
+    "// The texture to use when computing the luminance-based height.\n"
     "uniform sampler2D tex;\n"
+    "// The width and height of a texel in surface units.\n"
     "uniform float texelWidthS;\n"
     "uniform float texelWidthT;\n"
+    "// An overall scaling factor for the luminance-based height.\n"
+    "uniform float heightScale;\n"
     "in vec4 in_position;\n"
     "in vec2 in_texCoord;\n"
     "in vec3 in_normal;\n"
@@ -57,23 +67,29 @@ const char* IntensityHeightFieldVertexShader::Imp::text =
     "void main()\n"
     "{\n"
     "    vec4 t = texture(tex, in_texCoord);\n"
+    "    // Compute height, h, as the luminance from the texture at this vertex.\n"
     "    float h = 0.2126 * t.r + 0.7152 * t.g + 0.0722 * t.b;\n"
+    "    // For the normal, compute the heights using the adjacent texels.\n"
     "    vec4 tdx = textureOffset(tex, in_texCoord, ivec2(1, 0));\n"
     "    float hdx = 0.2126 * tdx.r + 0.7152 * tdx.g + 0.0722 * tdx.b;\n"
     "    vec4 tdy = textureOffset(tex, in_texCoord, ivec2(0, 1));\n"
     "    float hdy = 0.2126 * tdy.r + 0.7152 * tdy.g + 0.0722 * tdy.b;\n"
+    "    // Compute a weight, w, that drops to 0 at the edges of the surface.\n"
     "    float w = min(in_texCoord.s / 0.1, 1.0);\n"
     "    w *= min((1.0 - in_texCoord.s) / 0.1, 1.0);\n"
     "    w *= min(in_texCoord.t / 0.1, 1.0);\n"
     "    w *= min((1.0 - in_texCoord.t) / 0.1, 1.0);\n"
-    "    w /= 3;\n"
+    "    // Include an overall scaling for the height.\n"
+    "    w *= heightScale;\n"
     "    h *= w;\n"
     "    hdx *= w;\n"
     "    hdy *= w;\n"
     "    vec4 v = in_position;\n"
     "    v.z += h;\n"
     "    gl_Position = modelViewProjMatrix * v;\n"
-    "    vs_texCoord = in_texCoord;"
+    "    vs_texCoord = in_texCoord;\n"
+    "    // We cannot know exactly how far the adjacent pixels are in X and Y, so use an\n"
+    "    // approximation of the texel width and height in surface units.\n"
     "    vec3 n = cross(vec3(texelWidthS, 0, hdx - h), vec3(0, texelWidthT, hdy - h));\n"
     "    // VertexShaderPNT expects in_normal to be used, even though\n"
     "    // this shader is unusual in that it does not need it.\n"
@@ -90,27 +106,44 @@ IntensityHeightFieldVertexShader::~IntensityHeightFieldVertexShader()
 {
 }
 
+void IntensityHeightFieldVertexShader::setHeightScale(GLfloat s)
+{
+    _m->heightScale = s;
+}
+
+GLfloat IntensityHeightFieldVertexShader::heightScale() const
+{
+    return _m->heightScale;
+}
+
 void IntensityHeightFieldVertexShader::postLink()
 {
     VertexShaderPNT::postLink();
 
     _m->texelWidthTUniform = glGetUniformLocation(shaderProgram()->id(), "texelWidthT");
     _m->texelWidthSUniform = glGetUniformLocation(shaderProgram()->id(), "texelWidthS");
+    _m->heightScaleUniform = glGetUniformLocation(shaderProgram()->id(), "heightScale");
     
     // Use assertions rather than exceptions here because the shader text
     // not set by the caller.
     
     assert (_m->texelWidthSUniform >= 0);
     assert (_m->texelWidthTUniform >= 0);
+    assert (_m->heightScaleUniform >= 0);
 }
 
 void IntensityHeightFieldVertexShader::preDraw()
 {
+    // Save the current texture wrapping settings so they can be changed and then
+    // restored after drawing.
+    
     glGetTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, &_m->defaultTextureWrapS);
     glGetTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, &_m->defaultTextureWrapT);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    
+    glUniform1f(_m->heightScaleUniform, _m->heightScale);
 }
 
 void IntensityHeightFieldVertexShader::preDraw(Agl::SurfacePNT* surface)
@@ -121,15 +154,19 @@ void IntensityHeightFieldVertexShader::preDraw(Agl::SurfacePNT* surface)
     {
         texture->bind();
         
+        // When the shader computes the normal vector at each warped vertex,
+        // it takes the cross product of vectors to nearby locations in the
+        // height field.  To efficiently get the heights at those locations,
+        // it uses adjacent texels.  It also needs the displacements in x and
+        // y to those locations, and it approximates those displacements as
+        // the width and height of a texel in surface units.  Getting those
+        // units correct requires knowing the scaling that was applied to the
+        // surface.
+        
         Imath::M44f modelMatrix = surface->modelMatrix();
         Imath::V3f scale;
         Imath::extractScaling(modelMatrix, scale);
-        
-        // This shader assumes that the surface is a 1.0 x 1.0 square
-        // like an Agl::FlattishRectangular surface.  Since the shader's
-        // behavior is so specialized, such an assumption does not seem
-        // unreasonable.
-    
+                
         GLfloat texelWidthS = scale.x / texture->width();
         GLfloat texelWidthT = scale.y / texture->height();
         

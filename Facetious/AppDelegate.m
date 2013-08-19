@@ -44,6 +44,10 @@
 {
     // Code to initialize the application goes here.
     
+    // Call the pure C function whose implementation sets up the C++
+    // Aoc::CppNSOpenGLBase to allocate an instance of FacetiousCppNSOpenGL,
+    // where most of the application is implemented.
+    
     facetiousInit();
     
     view = [[AocNSOpenGLView alloc] init];
@@ -53,11 +57,13 @@
     [_window setContentView:view];
     
     NSRect frame = [_window frame];
+    
+    // This width and height work for a MacBook Pro with Retina display.
+    
     frame.size.width = 800;
     frame.size.height = 800;
-    [_window setFrame:frame display:YES];
     
-    [_window setTitle:@"Facetious 0.1"];
+    [_window setFrame:frame display:YES];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
