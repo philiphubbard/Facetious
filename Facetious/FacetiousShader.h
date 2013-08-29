@@ -50,6 +50,7 @@ namespace Agl
 class IntensityHeightFieldVertexShader : public Agl::VertexShaderPNT
 {
 public:
+    
     IntensityHeightFieldVertexShader();
     virtual ~IntensityHeightFieldVertexShader();
     
