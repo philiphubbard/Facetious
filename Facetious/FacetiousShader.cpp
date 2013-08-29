@@ -32,7 +32,7 @@
 #include <assert.h>
 
     
-class IntensityHeightFieldVertexShader::Imp
+class LuminanceHeightFieldVertexShader::Imp
 {
 public:
     Imp() : defaultTextureWrapS(GL_CLAMP_TO_EDGE),
@@ -48,7 +48,7 @@ public:
     GLint               heightScaleUniform;
 };
 
-const char* IntensityHeightFieldVertexShader::Imp::text =
+const char* LuminanceHeightFieldVertexShader::Imp::text =
     "#version 150\n"
     "uniform mat4 modelViewProjMatrix;\n"
     "uniform mat3 normalMatrix;\n"
@@ -97,26 +97,26 @@ const char* IntensityHeightFieldVertexShader::Imp::text =
     "    vs_normal = normalize(normalMatrix * n);\n"
     "}\n";
 
-IntensityHeightFieldVertexShader::IntensityHeightFieldVertexShader() :
+LuminanceHeightFieldVertexShader::LuminanceHeightFieldVertexShader() :
     Agl::VertexShaderPNT(Imp::text), _m(new Imp)
 {
 }
 
-IntensityHeightFieldVertexShader::~IntensityHeightFieldVertexShader()
+LuminanceHeightFieldVertexShader::~LuminanceHeightFieldVertexShader()
 {
 }
 
-void IntensityHeightFieldVertexShader::setHeightScale(GLfloat s)
+void LuminanceHeightFieldVertexShader::setHeightScale(GLfloat s)
 {
     _m->heightScale = s;
 }
 
-GLfloat IntensityHeightFieldVertexShader::heightScale() const
+GLfloat LuminanceHeightFieldVertexShader::heightScale() const
 {
     return _m->heightScale;
 }
 
-void IntensityHeightFieldVertexShader::postLink()
+void LuminanceHeightFieldVertexShader::postLink()
 {
     VertexShaderPNT::postLink();
 
@@ -132,7 +132,7 @@ void IntensityHeightFieldVertexShader::postLink()
     assert (_m->heightScaleUniform >= 0);
 }
 
-void IntensityHeightFieldVertexShader::preDraw()
+void LuminanceHeightFieldVertexShader::preDraw()
 {
     // Save the current texture wrapping settings so they can be changed and then
     // restored after drawing.
@@ -146,7 +146,7 @@ void IntensityHeightFieldVertexShader::preDraw()
     glUniform1f(_m->heightScaleUniform, _m->heightScale);
 }
 
-void IntensityHeightFieldVertexShader::preDraw(Agl::SurfacePNT* surface)
+void LuminanceHeightFieldVertexShader::preDraw(Agl::SurfacePNT* surface)
 {
     Agl::VertexShaderPNT::preDraw(surface);
     
@@ -175,33 +175,33 @@ void IntensityHeightFieldVertexShader::preDraw(Agl::SurfacePNT* surface)
     }
 }
 
-void IntensityHeightFieldVertexShader::postDraw()
+void LuminanceHeightFieldVertexShader::postDraw()
 {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _m->defaultTextureWrapS);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, _m->defaultTextureWrapT);
 }
 
-const char* IntensityHeightFieldVertexShader::modelViewProjectionMatrixUniformName() const
+const char* LuminanceHeightFieldVertexShader::modelViewProjectionMatrixUniformName() const
 {
     return "modelViewProjMatrix";
 }
 
-const char* IntensityHeightFieldVertexShader::normalMatrixUniformName() const
+const char* LuminanceHeightFieldVertexShader::normalMatrixUniformName() const
 {
     return "normalMatrix";
 }
 
-const char* IntensityHeightFieldVertexShader::positionAttributeName() const
+const char* LuminanceHeightFieldVertexShader::positionAttributeName() const
 {
     return "in_position";
 }
 
-const char* IntensityHeightFieldVertexShader::normalAttributeName() const
+const char* LuminanceHeightFieldVertexShader::normalAttributeName() const
 {
     return "in_normal";
 }
 
-const char* IntensityHeightFieldVertexShader::texCoordAttributeName() const
+const char* LuminanceHeightFieldVertexShader::texCoordAttributeName() const
 {
     return "in_texCoord";
 }

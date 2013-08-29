@@ -345,7 +345,7 @@ void FacetiousCppNSOpenGL::Imp::detectorThreadFunc()
 
                 // Reduce the image to below the maximum requested width.
                 // This width is user settable, but in general, the results of
-                // IntensityHeightFieldVertexShader look best when the image
+                // LuminanceHeightFieldVertexShader look best when the image
                 // relatively low resolution, like 64 x 64.
 
                 while (width > detectorImageWidthMax)
@@ -514,7 +514,7 @@ void FacetiousCppNSOpenGL::init()
 
     // Initialize the front and back surfaces.  The front surface is flat
     // at this point, but will be heights computed at each vertex based on
-    // the image of the detected face by IntensityHeightFieldVertexShader.
+    // the image of the detected face by LuminanceHeightFieldVertexShader.
     // The back surface has a bit of a bulge, to make it more interesting.
     
     const GLsizei resFront = 512;
@@ -528,29 +528,29 @@ void FacetiousCppNSOpenGL::init()
     // for each surface, for the two different fragments shaders implementing
     // two different lighting models.  The front and the back surfaces use
     // different vertex shaders, because only the front surface should have
-    // heights computed at each vertex by IntensityHeightFieldVertexShader.
+    // heights computed at each vertex by LuminanceHeightFieldVertexShader.
     
-    IntensityHeightFieldVertexShader* vs0 = new IntensityHeightFieldVertexShader();
+    LuminanceHeightFieldVertexShader* vs0 = new LuminanceHeightFieldVertexShader();
     _m->vertexShaders.push_back(vs0);
     
     Agl::PhongOneDirectionalFragmentShader* fs0 = new Agl::PhongOneDirectionalFragmentShader();
     _m->fragmentShaders.push_back(fs0);
     _m->phongFragmentShaders.push_back(fs0);
     
-    IntensityPhongShaderProgram* p0 = new IntensityPhongShaderProgram();
+    LuminancePhongShaderProgram* p0 = new LuminancePhongShaderProgram();
     _m->frontShaderPrograms.push_back(p0);
     
     p0->setVertexShader(vs0);
     p0->setFragmentShader(fs0);
     p0->addSurface(_m->frontSurface);
 
-    IntensityHeightFieldVertexShader* vs1 = new IntensityHeightFieldVertexShader();
+    LuminanceHeightFieldVertexShader* vs1 = new LuminanceHeightFieldVertexShader();
     _m->vertexShaders.push_back(vs1);
     
     Agl::SphericalHarmonicsFragmentShader* fs1 = new Agl::SphericalHarmonicsFragmentShader();
     _m->fragmentShaders.push_back(fs1);
     
-    IntensityHarmonicsShaderProgram* p1 = new IntensityHarmonicsShaderProgram();
+    LuminanceHarmonicsShaderProgram* p1 = new LuminanceHarmonicsShaderProgram();
     _m->frontShaderPrograms.push_back(p1);
     
     p1->setVertexShader(vs1);

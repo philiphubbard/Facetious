@@ -23,11 +23,11 @@
 //
 // FacetiousShader.h
 //
-// IntensityHeightFieldVertexShader: An OpenGL vertex shader that warps
+// LuminanceHeightFieldVertexShader: An OpenGL vertex shader that warps
 // a flat grid surface, giving each vertex a height based on the luminance
 // (perceived brightness) of a texture at the position of the vertex.
 //
-// IntensityPhongShaderProgram, IntensityHarmonicsShaderProgram,
+// LuminancePhongShaderProgram, LuminanceHarmonicsShaderProgram,
 // BasicPhongShaderProgram, BasicHarmonicsShaderProgra: typedefs for
 // instatiations of the Agl::ShaderProgramSpecific template, for
 // the four combinations of vertex and fragment shaders used in the
@@ -47,12 +47,12 @@ namespace Agl
     class SphericalHarmonicsFragmentShader;
 }
 
-class IntensityHeightFieldVertexShader : public Agl::VertexShaderPNT
+class LuminanceHeightFieldVertexShader : public Agl::VertexShaderPNT
 {
 public:
     
-    IntensityHeightFieldVertexShader();
-    virtual ~IntensityHeightFieldVertexShader();
+    LuminanceHeightFieldVertexShader();
+    virtual ~LuminanceHeightFieldVertexShader();
     
     // Set and get a scale factor for the luminance-based height at each
     // vertex (1.0f leaves the height unscaled).
@@ -110,15 +110,15 @@ private:
 
 // Typedefs for specific shader programs instantiated from the template.
 
-typedef Agl::ShaderProgramSpecific<IntensityHeightFieldVertexShader,
+typedef Agl::ShaderProgramSpecific<LuminanceHeightFieldVertexShader,
                                    Agl::PhongOneDirectionalFragmentShader,
                                    Agl::FlattishRectangularSurface>
-    IntensityPhongShaderProgram;
+    LuminancePhongShaderProgram;
 
-typedef Agl::ShaderProgramSpecific<IntensityHeightFieldVertexShader,
+typedef Agl::ShaderProgramSpecific<LuminanceHeightFieldVertexShader,
                                    Agl::SphericalHarmonicsFragmentShader,
                                    Agl::FlattishRectangularSurface>
-    IntensityHarmonicsShaderProgram;
+    LuminanceHarmonicsShaderProgram;
 
 typedef Agl::ShaderProgramSpecific<Agl::BasicVertexShader,
                                    Agl::PhongOneDirectionalFragmentShader,
