@@ -787,7 +787,7 @@ void FacetiousCppNSOpenGL::keyDown(Aoc::CppNSOpenGLBase::KeyEvent keyEvent)
     bool stopAnim = false;
     bool startAnim = false;
     
-    if (keyEvent.special == KeyEvent::LeftArrow)
+    if (keyEvent.special() == KeyEvent::LeftArrow)
     {
         // Arrow keys stop the animation and change the rotation angles
         // explicitly.
@@ -795,22 +795,22 @@ void FacetiousCppNSOpenGL::keyDown(Aoc::CppNSOpenGLBase::KeyEvent keyEvent)
         _m->rotAngleY -= rotAngleChange;
         stopAnim = true;
     }
-    else if (keyEvent.special == KeyEvent::RightArrow)
+    else if (keyEvent.special() == KeyEvent::RightArrow)
     {
         _m->rotAngleY += rotAngleChange;
         stopAnim = true;
     }
-    else if (keyEvent.special == KeyEvent::DownArrow)
+    else if (keyEvent.special() == KeyEvent::DownArrow)
     {
         _m->rotAngleX += rotAngleChange;
         stopAnim = true;
     }
-    else if (keyEvent.special == KeyEvent::UpArrow)
+    else if (keyEvent.special() == KeyEvent::UpArrow)
     {
         _m->rotAngleX -= rotAngleChange;
         stopAnim = true;
     }
-    else if (keyEvent.character == 'b')
+    else if (keyEvent.character() == 'b')
     {
         // 'b'/'B' for "brighten".
         
@@ -820,7 +820,7 @@ void FacetiousCppNSOpenGL::keyDown(Aoc::CppNSOpenGLBase::KeyEvent keyEvent)
             _m->lightColor += Imath::V3f(0.1f);
         }
     }
-    else if (keyEvent.character == 'B')
+    else if (keyEvent.character() == 'B')
     {
         // 'b'/'B' for "brighten".
         
@@ -830,34 +830,34 @@ void FacetiousCppNSOpenGL::keyDown(Aoc::CppNSOpenGLBase::KeyEvent keyEvent)
             _m->lightColor -= Imath::V3f(0.1f);
         }
     }
-    else if (keyEvent.character == 'l')
+    else if (keyEvent.character() == 'l')
     {
         // 'l' for "lighting".
         
         _m->iCurrentShaderProgram =
             (_m->iCurrentShaderProgram + 1) % _m->frontShaderPrograms.size();
     }
-    else if (keyEvent.character == 'r')
+    else if (keyEvent.character() == 'r')
     {
         // 'r'/'R' for "resolution".
         
         if (_m->detectorImageWidthMax > 32)
             _m->detectorImageWidthMax /= 2;
     }
-    else if (keyEvent.character == 'R')
+    else if (keyEvent.character() == 'R')
     {
         // 'r'/'R' for "resolution".
         
         if (_m->detectorImageWidthMax < 2048)
             _m->detectorImageWidthMax *= 2;
     }
-    else if (keyEvent.character == 's')
+    else if (keyEvent.character() == 's')
     {
         // 's' for "stabilize".
         
         _m->stabilize = !_m->stabilize;
     }
-    else if (keyEvent.character == ' ')
+    else if (keyEvent.character() == ' ')
     {
         // Spacebar restarts the animation at the beginning.
         
