@@ -598,8 +598,8 @@ void FacetiousCppNSOpenGL::init()
         Aut::fatalError(exc.what());
     }
     
-    _m->frontSurface->buildElementBufferObject();
-    _m->backSurface->buildElementBufferObject();
+    _m->frontSurface->buildElementArrayBufferObject();
+    _m->backSurface->buildElementArrayBufferObject();
     
     // Initialize the Phong shaders' light.
     
