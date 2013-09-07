@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../Aut/Aut.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Agl/Agl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Aoc/Aoc.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Facetious.xcodeproj">
+   </FileRef>
+</Workspace>
