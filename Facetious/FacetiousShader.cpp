@@ -25,9 +25,9 @@
 //
 
 #include "FacetiousShader.h"
-#include "Agl/AglShaderProgram.h"
-#include "Agl/AglSurfacePNT.h"
-#include "Agl/AglTextureUbyte.h"
+#include "AglShaderProgram.h"
+#include "AglSurfacePNT.h"
+#include "AglTextureUbyte.h"
 #include <OpenEXR/ImathMatrixAlgo.h>
 #include <assert.h>
 

@@ -27,21 +27,21 @@
 #include "FacetiousCppNSOpenGL.h"
 #include "FacetiousShader.h"
 
-#include "Aoc/AocCppAVFoundationCamera.h"
-#include "Aoc/AocCppCIDetector.h"
+#include "AocCppAVFoundationCamera.h"
+#include "AocCppCIDetector.h"
 
-#include "Agl/AglUtilities.h"
-#include "Agl/AglShader.h"
-#include "Agl/AglImagePool.h"
-#include "Agl/AglTextureUbyte.h"
-#include "Agl/AglFlattishRectangularSurface.h"
-#include "Agl/AglBasicVertexShader.h"
-#include "Agl/AglPhongOneDirectionalFragmentShader.h"
-#include "Agl/AglSphericalHarmonicsFragmentShader.h"
+#include "AglUtilities.h"
+#include "AglShader.h"
+#include "AglImagePool.h"
+#include "AglTextureUbyte.h"
+#include "AglFlattishRectangularSurface.h"
+#include "AglBasicVertexShader.h"
+#include "AglPhongOneDirectionalFragmentShader.h"
+#include "AglSphericalHarmonicsFragmentShader.h"
 
-#include "Aut/AutAlert.h"
-#include "Aut/AutAnim.h"
-#include "Aut/AutRunningAverage.h"
+#include "AutAlert.h"
+#include "AutAnim.h"
+#include "AutRunningAverage.h"
 
 #include <OpenEXR/ImathFrustum.h>
 #include <OpenEXR/ImathMatrix.h>

@@ -26,7 +26,7 @@
 
 #import "AppDelegate.h"
 #import "FacetiousInit.h"
-#import "Aoc/AocNSOpenGLView.h"
+#import "AocNSOpenGLView.h"
 
 @interface AppDelegate () {
     AocNSOpenGLView* view;

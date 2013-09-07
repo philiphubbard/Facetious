@@ -26,7 +26,6 @@
 		D3DB589B17DA7F38002C8BD8 /* libAgl.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005417B897E000CF8309 /* libAgl.dylib */; };
 		D3DB589C17DA7F38002C8BD8 /* libAoc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005517B897E000CF8309 /* libAoc.dylib */; };
 		D3DB589D17DA7F38002C8BD8 /* libAut.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005617B897E000CF8309 /* libAut.dylib */; };
-		D3DB58E517DA9F25002C8BD8 /* defaultImage.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = D322A00517D4FB9B0024698F /* defaultImage.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,16 +39,6 @@
 				D3DB589B17DA7F38002C8BD8 /* libAgl.dylib in CopyFiles */,
 				D3DB589C17DA7F38002C8BD8 /* libAoc.dylib in CopyFiles */,
 				D3DB589D17DA7F38002C8BD8 /* libAut.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D3DB58E417DA9F1A002C8BD8 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				D3DB58E517DA9F25002C8BD8 /* defaultImage.jpg in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +173,6 @@
 				D326002B17B894B000CF8309 /* Frameworks */,
 				D326002C17B894B000CF8309 /* Resources */,
 				D3DB589917DA7D52002C8BD8 /* CopyFiles */,
-				D3DB58E417DA9F1A002C8BD8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -342,7 +330,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Facetious/Facetious-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/..",
+					"$(SRCROOT)/../Agl/src",
+					"$(SRCROOT)/../Aoc/src",
+					"$(SRCROOT)/../Aut/src",
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
@@ -364,7 +354,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Facetious/Facetious-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/..",
+					"$(SRCROOT)/../Agl/src",
+					"$(SRCROOT)/../Aoc/src",
+					"$(SRCROOT)/../Aut/src",
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";

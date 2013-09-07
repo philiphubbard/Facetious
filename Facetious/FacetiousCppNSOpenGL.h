@@ -33,7 +33,7 @@
 #ifndef __FacetiousCppNSOpenGL__
 #define __FacetiousCppNSOpenGL__
 
-#include "Aoc/AocCppNSOpenGLBase.h"
+#include "AocCppNSOpenGLBase.h"
 
 class FacetiousCppNSOpenGL : public Aoc::CppNSOpenGLBase
 {

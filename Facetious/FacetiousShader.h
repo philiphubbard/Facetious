@@ -36,8 +36,8 @@
 #ifndef __FacetiousShader__
 #define __FecetiousShader__
 
-#include "Agl/AglShaderProgramSpecific.h"
-#include "Agl/AglVertexShaderPNT.h"
+#include "AglShaderProgramSpecific.h"
+#include "AglVertexShaderPNT.h"
 
 namespace Agl
 {
