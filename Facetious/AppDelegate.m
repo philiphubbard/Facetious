@@ -55,15 +55,6 @@
     // Put the BasicOpenGLView into the window so it will be displayed.
     
     [_window setContentView:view];
-    
-    NSRect frame = [_window frame];
-    
-    // This width and height work for a MacBook Pro with Retina display.
-    
-    frame.size.width = 800;
-    frame.size.height = 800;
-    
-    [_window setFrame:frame display:YES];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication

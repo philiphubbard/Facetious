@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D322A00617D4FB9B0024698F /* defaultImage.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D322A00517D4FB9B0024698F /* defaultImage.JPG */; };
+		D322A00617D4FB9B0024698F /* defaultImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D322A00517D4FB9B0024698F /* defaultImage.jpg */; };
 		D326003217B894B000CF8309 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D326003117B894B000CF8309 /* Cocoa.framework */; };
 		D326003C17B894B000CF8309 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D326003A17B894B000CF8309 /* InfoPlist.strings */; };
 		D326003E17B894B000CF8309 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D326003D17B894B000CF8309 /* main.m */; };
@@ -22,11 +22,41 @@
 		D326005B17B9E59700CF8309 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005A17B9E59700CF8309 /* OpenGL.framework */; };
 		D326005D17B9E5D600CF8309 /* libIex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D326005C17B9E5D600CF8309 /* libIex.dylib */; };
 		D326006017B9E86000CF8309 /* FacetiousInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D326005E17B9E86000CF8309 /* FacetiousInit.cpp */; };
-		D326006417C1674600CF8309 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = D326006317C1674600CF8309 /* README.txt */; };
+		D3DB589A17DA7F38002C8BD8 /* libIex.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005C17B9E5D600CF8309 /* libIex.dylib */; };
+		D3DB589B17DA7F38002C8BD8 /* libAgl.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005417B897E000CF8309 /* libAgl.dylib */; };
+		D3DB589C17DA7F38002C8BD8 /* libAoc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005517B897E000CF8309 /* libAoc.dylib */; };
+		D3DB589D17DA7F38002C8BD8 /* libAut.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = D326005617B897E000CF8309 /* libAut.dylib */; };
+		D3DB58E517DA9F25002C8BD8 /* defaultImage.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = D322A00517D4FB9B0024698F /* defaultImage.jpg */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D3DB589917DA7D52002C8BD8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D3DB589A17DA7F38002C8BD8 /* libIex.dylib in CopyFiles */,
+				D3DB589B17DA7F38002C8BD8 /* libAgl.dylib in CopyFiles */,
+				D3DB589C17DA7F38002C8BD8 /* libAoc.dylib in CopyFiles */,
+				D3DB589D17DA7F38002C8BD8 /* libAut.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3DB58E417DA9F1A002C8BD8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				D3DB58E517DA9F25002C8BD8 /* defaultImage.jpg in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		D322A00517D4FB9B0024698F /* defaultImage.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultImage.JPG; sourceTree = "<group>"; };
+		D322A00517D4FB9B0024698F /* defaultImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultImage.jpg; sourceTree = "<group>"; };
 		D326002E17B894B000CF8309 /* Facetious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Facetious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D326003117B894B000CF8309 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D326003417B894B000CF8309 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -124,6 +154,7 @@
 				D326005E17B9E86000CF8309 /* FacetiousInit.cpp */,
 				D326005F17B9E86000CF8309 /* FacetiousInit.h */,
 				D326004617B894B000CF8309 /* MainMenu.xib */,
+				D326006317C1674600CF8309 /* README.txt */,
 				D326003817B894B000CF8309 /* Supporting Files */,
 			);
 			path = Facetious;
@@ -137,8 +168,7 @@
 				D326003D17B894B000CF8309 /* main.m */,
 				D326003F17B894B000CF8309 /* Facetious-Prefix.pch */,
 				D326004017B894B000CF8309 /* Credits.rtf */,
-				D322A00517D4FB9B0024698F /* defaultImage.JPG */,
-				D326006317C1674600CF8309 /* README.txt */,
+				D322A00517D4FB9B0024698F /* defaultImage.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,6 +183,8 @@
 				D326002A17B894B000CF8309 /* Sources */,
 				D326002B17B894B000CF8309 /* Frameworks */,
 				D326002C17B894B000CF8309 /* Resources */,
+				D3DB589917DA7D52002C8BD8 /* CopyFiles */,
+				D3DB58E417DA9F1A002C8BD8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -197,8 +229,7 @@
 				D326003C17B894B000CF8309 /* InfoPlist.strings in Resources */,
 				D326004217B894B000CF8309 /* Credits.rtf in Resources */,
 				D326004817B894B000CF8309 /* MainMenu.xib in Resources */,
-				D326006417C1674600CF8309 /* README.txt in Resources */,
-				D322A00617D4FB9B0024698F /* defaultImage.JPG in Resources */,
+				D322A00617D4FB9B0024698F /* defaultImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +346,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug\"",
@@ -336,6 +368,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "Facetious/Facetious-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug\"",

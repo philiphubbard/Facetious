@@ -235,11 +235,15 @@ void FacetiousCppNSOpenGL::Imp::getDefaultImage(GLubyte*& data, GLsizei& width,
                                                 GLsizei& height)
 {
     CFBundleRef bundle = CFBundleGetMainBundle();
-    CFStringRef name = CFStringCreateWithCString (NULL, "defaultImage",
-                                                  kCFStringEncodingUTF8);
     
-    CFURLRef url = CFBundleCopyResourceURL(bundle, name, CFSTR("jpg"), NULL);
-    CFRelease(name);
+    // It is surprisingly tricky to have code get a valid URL for the
+    // default image from the resources when running either from Xcode or
+    // in an archived app.  It seems to be important that the file have a
+    // lowercase "jpg" extension.
+
+    CFURLRef url = CFBundleCopyResourceURL(bundle, CFSTR("defaultImage.jpg"),
+                                           NULL, NULL);
+    assert(url);
     
     CGDataProviderRef provider = CGDataProviderCreateWithURL(url);
     CFRelease (url);
