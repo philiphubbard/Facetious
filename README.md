@@ -58,7 +58,7 @@ The Xcode project build settings assume that all projects---Facetious, Aoc, Agl 
 	#include "AutAnim.h"
 	#include <OpenEXR/ImathMatrix.h>
 
-The Aoc, Agl and Aut projects have build settings of "Installation Directory" to "@rpath".  This setting allows those library to be found when they are embedded in the Facetious application bundle.  Facetious has a build setting of "Runpath Search Paths" to "@loader_path/../Frameworks" and a "Copy Files" build phase to copy those library into the Frameworks section of its bundle.
+The Aoc, Agl and Aut projects have build settings of "Installation Directory" to "@rpath".  This setting allows those libraries to be found when they are embedded in the Facetious application bundle.  Facetious has a build setting of "Runpath Search Paths" to "@loader_path/../Frameworks" and a "Copy Files" build phase to copy those libraries into the Frameworks section of its bundle.
 
-The Agl and Aut libraries, and the FacetiousCppNSOpenGL code that implements most of the application's features, are written in C++ only.  They do use a few C++11 features, but it would not be difficult to remove those features, assuming that an appropriate version of Boost is available to replace some STL capabilities, like threading and timing operations.
+The Agl and Aut libraries, and the `FacetiousCppNSOpenGL` code that implements most of the application's features, are written in C++ only.  They do use a few C++11 features, but it would not be difficult to remove those features, assuming that an appropriate version of Boost is available to replace some STL capabilities, like threading and timing operations.
 
