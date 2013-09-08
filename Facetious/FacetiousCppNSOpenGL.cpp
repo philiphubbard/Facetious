@@ -408,10 +408,6 @@ void FacetiousCppNSOpenGL::Imp::detectorThreadFunc()
     }
     
     delete detector;
-#if 1
-    // HEY!! Debugging output
-    std::cerr << "detector thread: stopped running\n";
-#endif
 }
 
 void FacetiousCppNSOpenGL::Imp::animTimerThreadFunc()
@@ -444,10 +440,6 @@ void FacetiousCppNSOpenGL::Imp::animTimerThreadFunc()
                 keepGoing = false;
         }
     }
-#if 1
-    // HEY!! Debugging output
-    std::cerr << "anim thread: stopped running\n";
-#endif
 }
 
 //
@@ -678,23 +670,11 @@ void FacetiousCppNSOpenGL::reshape(int width, int height)
 
 void FacetiousCppNSOpenGL::draw()
 {
-#if 1
-    // HEY!! Debugging output
-    static size_t count = 0;
-    std::cerr << "draw [" << count++ << "]\n";
-#endif
-    
     {
         std::unique_lock<std::mutex> lock(_m-> detectorMutex, std::try_to_lock);
 
         if (lock && _m->detectorImage)
-        {
-#if 1
-            // HEY!! Debugging output
-            std::cerr << "Face width " << _m->detectedFace.width()
-                << " height " << _m->detectedFace.height() << "\n";
-#endif
-            
+        {            
             // If a new image is available from the detector thread, use
             // it to replace front surface's texture.
 
