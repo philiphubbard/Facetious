@@ -70,7 +70,7 @@
 		D326005C17B9E5D600CF8309 /* libIex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libIex.dylib; path = ../../../../../../usr/local/lib/libIex.dylib; sourceTree = "<group>"; };
 		D326005E17B9E86000CF8309 /* FacetiousInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacetiousInit.cpp; sourceTree = "<group>"; };
 		D326005F17B9E86000CF8309 /* FacetiousInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacetiousInit.h; sourceTree = "<group>"; };
-		D3CE14CA17DCC85000574B00 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		D3CE14CA17DCC85000574B00 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		D326002517B894B000CF8309 = {
 			isa = PBXGroup;
 			children = (
-				D3CE14CA17DCC85000574B00 /* README.txt */,
+				D3CE14CA17DCC85000574B00 /* README.md */,
 				D326005C17B9E5D600CF8309 /* libIex.dylib */,
 				D326005A17B9E59700CF8309 /* OpenGL.framework */,
 				D326005417B897E000CF8309 /* libAgl.dylib */,
