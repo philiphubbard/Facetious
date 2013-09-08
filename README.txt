@@ -38,18 +38,18 @@ a simple Phong model with one directional light, and spherical harmonics encodin
 
 Building
 
-Since Facetious is a Cocoa application, it requires an Apple OS X platform.  In particular, the Aoc library uses the following frameworks: ApplicationServices.framework, AVFoundation.framework, CoreMedia.framework, OpenGL.framework, QuartzCore.framework.  Aoc also requires a compiler that supports Objective-C++ in addition to Objective-C and C++.  The particular version of Xcode used for Facetious development was 4.6.3.
+Since Facetious is a Cocoa application, it requires an Apple OS X platform.  In particular, the Aoc library uses the following frameworks: ApplicationServices.framework, AVFoundation.framework, CoreMedia.framework, OpenGL.framework, QuartzCore.framework.  Aoc also requires a compiler that supports Objective-C++ in addition to Objective-C and C++.  The particular version of Xcode used for Facetious development was 4.6.3.  The Xcode project settings are stored in Facetious.xcodeproj.
 
-The Agl and Aut libraries, and the FacetiousCppNSOpenGL code that implements most of the application's features, are written in C++ only.  They do use a few C++11 features, but it should not be difficult to remove those features, assuming that an appropriate version of Boost is available to replace some STL capabilities, like threading and timing operations.
+As mentioned above, Facetious depends on the Aoc, Agl and Aut libraries.  An Xcode workspace is convenient when developing an application that uses code from multiple projects, and Facetious.xcworkspace/contents.xcworkspacedata stores the settings for a workspace for Facetious.
 
 Facetious and Agl also depend on the Imath library from the IlmBase part of the OpenEXR project.  This code is available on Github or from http://www.openexr.com/downloads.html.
 
-In Xcode, there is an overall workspace called FacetiousWorkspace, and projects Facetious, Aoc, Agl and Aut; there are also projects AglTest and AutTest which test (parts of) Agl and Aut through command-line applications.
+The Xcode project build settings assume that all projects---Facetious, Aoc, Agl and Aut---are siblings at the same level in the directory hierarchy, and that Imath has been installed with header files in /usr/local/include and libraries in /usr/local/lib.  Aoc, Agl and Aut have header files in a "src" subdirectory.  So in the project build settings, the "Header Search Paths" is set to "$(SRCROOT)/../Aoc/src $(SRCROOT)/../Agl/src $(SRCROOT)/../Aut/src /usr/local/include", allowing Facetious code to have include statements like the following:
 
-The Xcode project and workspace build settings assume that all code---the Facetious, Aoc, Agl and Aut projects and the FacetiousWorkspace workspace---are siblings at the same level in the directory hierarchy, and that Imath has been installed with header files in /usr/local/include and libraries in /usr/local/lib.  In the "Build Settings," the "Header Search Paths" is set to "$(SRCROOT)/.. /usr/local/include", allowing source code to have include statements like the following:
-
-	#include "Aut/AutAnim.h"
+	#include "AutAnim.h"
 	#include <OpenEXR/ImathMatrix.h>
 
+The Aoc, Agl and Aut projects have build settings of "Installation Directory" to "@rpath".  This setting allows those library to be found when they are embedded in the Facetious application bundle.  Facetious has a build setting of "Runpath Search Paths" to "@loader_path/../Frameworks" and a "Copy Files" build phase to copy those library into the Frameworks section of its bundle.
 
-Future Work
+The Agl and Aut libraries, and the FacetiousCppNSOpenGL code that implements most of the application's features, are written in C++ only.  They do use a few C++11 features, but it would not be difficult to remove those features, assuming that an appropriate version of Boost is available to replace some STL capabilities, like threading and timing operations.
+
