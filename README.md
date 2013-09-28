@@ -30,8 +30,8 @@ The surface onto which the face texture is mapped is defined as a flat grid of v
 The luminance-based height field changes more gradually and looks more interesting if it is computed from a relatively low resolution texture.  So the main thread uses a utility routine from Agl to reduce the resolution of the latest face image down to 64 by 64 pixels.  The user can override this setting, as described next.
 
 
-User Interface
---------------
+Usage
+-----
 
 The main thread of Facetious also processes a simple set of keyboard commands.
 
@@ -43,6 +43,7 @@ a simple Phong model with one directional light, and spherical harmonics encodin
 * The 'r' key reduces the resolution of the face texture by a factor of two (to a minimum of 32 by 32), and the 'R' key doubles the resolution.
 * The 's' key toggles stabilization of the facial tracker's results off and on.
 
+The face detector seems to work best under relatively bright, even lighting conditions.  Backlighting, in particular, seems to cause it problems; it often cannot find the face of a user sitting in front of a bright window.
 
 Building
 --------
