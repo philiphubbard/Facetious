@@ -341,7 +341,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug\"",
 					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,7 +364,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/FacetiousWorkspace-fwmrwwelmqjckdfqxtkgakduskfp/Build/Products/Debug\"",
 					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
