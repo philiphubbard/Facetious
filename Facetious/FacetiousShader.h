@@ -34,7 +34,7 @@
 // Facetious application.
 
 #ifndef __FacetiousShader__
-#define __FecetiousShader__
+#define __FacetiousShader__
 
 #include "AglShaderProgramSpecific.h"
 #include "AglVertexShaderPNT.h"
